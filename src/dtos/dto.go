@@ -1,8 +1,8 @@
 package dto
 
-type parkingLotRequest struct {
+type ParkingLotRequest struct {
 	address string
 }
 
-type parkingLotResponse struct {
+type ParkingLotResponse struct {
 }
