@@ -288,6 +288,24 @@ func (p *ParkingLotRepository) CreateTables() error {
 		return err
 	}
 
+	query = `
+	CREATE TABLE vehicle_type_price (
+		id INTEGER NOT NULL AUTO_INCREMENT,
+		parking_lot_id INTEGER NOT NULL,
+		vehicle_type_id INTEGER NOT NULL,
+		price INTEGER NOT NULL,
+		PRIMARY KEY (id),
+		KEY vehicle_type_price_FK (parking_lot_id),
+		KEY vehicle_type_price_FK_1 (vehicle_type_id),
+		CONSTRAINT vehicle_type_price_FK FOREIGN KEY (parking_lot_id) REFERENCES parking_lot (id),
+		CONSTRAINT vehicle_type_price_FK_1 FOREIGN KEY (vehicle_type_id) REFERENCES vehicle_type (id)
+	)`
+	_, err = p.DbClient.Exec(query)
+	if err != nil {
+		fmt.Println("Failed creating table payment, Error: ", err)
+		return err
+	}
+
 	fmt.Println("Tables are successfully created")
 
 	return nil
@@ -328,7 +346,6 @@ func (p *ParkingLotRepository) DeleteTables() error {
 		"parking_spot",
 		"parking_floor",
 		"gate",
-		"parking_lot",
 		"electric_charger",
 		"gate_status",
 		"gate_type",
@@ -338,7 +355,9 @@ func (p *ParkingLotRepository) DeleteTables() error {
 		"payment_mode",
 		"payment_status",
 		"vehicle",
-		"vehicle_type"}
+		"vehicle_type_price",
+		"vehicle_type",
+		"parking_lot"}
 
 	deletedTableList := ""
 	for i := range deleteOrder {
@@ -348,6 +367,7 @@ func (p *ParkingLotRepository) DeleteTables() error {
 			if strings.Contains(err.Error(), "Unknown table") {
 				continue
 			}
+			fmt.Println("Failed deleting table ", deleteOrder[i], ". Error: ", err)
 			return err
 		} else {
 			deletedTableList = deletedTableList + deleteOrder[i] + " "
