@@ -1,8 +1,14 @@
 package dto
 
 type ParkingLotRequest struct {
-	address string
+	Address string
 }
 
 type ParkingLotResponse struct {
+}
+
+func SetParkingLotRequest1(address string) ParkingLotRequest {
+	return ParkingLotRequest{
+		Address: address,
+	}
 }

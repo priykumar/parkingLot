@@ -1,4 +1,4 @@
-package models
+package model
 
 import "time"
 
@@ -45,7 +45,7 @@ const (
 
 const (
 	Cash       PaymentMode = "CASH"
-	DebitCard  PaymentMode = "DEBITE_CARD"
+	DebitCard  PaymentMode = "DEBIT_CARD"
 	CreditCard PaymentMode = "CREDIT_CARD"
 	NetBanking PaymentMode = "NET_BANKING"
 	UPI        PaymentMode = "UPI"
@@ -134,3 +134,5 @@ type Vehicle struct {
 	VehicleNumber string
 	VehicleType   VehicleType
 }
+
+//CREATE TABLE IF NOT EXISTS parking_floor ( id INTEGER NOT NULL AUTO_INCREMENT, floor_number INTEGER NOT NULL, parking_lot_id INTEGER NOT NULL, PRIMARY KEY (id), KEY parking_floor_FK (parking_lot_id), CONSTRAINT parking_floor_FK FOREIGN KEY (parking_lot_id) REFERENCES parking_lot (id) );

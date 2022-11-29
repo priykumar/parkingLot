@@ -1,2 +1,4 @@
-github.com/priykumar/parkingLot v0.0.0-20221128075400-e73a55ec0b79 h1:izzhc0hPGRdR0S7hOn3JXnipnZCySMOw21NgS9jOeCQ=
-github.com/priykumar/parkingLot v0.0.0-20221128075400-e73a55ec0b79/go.mod h1:zTk1xjMuHSq5oAZIhW1vWw6el/pjVLmUf/2vVLnT+Mw=
+github.com/go-sql-driver/mysql v1.6.0 h1:BCTh4TKNUYmOmMUcQ3IipzF5prigylS7XXjEkfCHuOE=
+github.com/go-sql-driver/mysql v1.6.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
+github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
+github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
